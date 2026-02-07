@@ -1,36 +1,146 @@
-<h1 align="center">Hi 👋, I'm Sourabh kumar</h1>
-<h3 align="center">A passionate Full Stack developer (MERN) from India</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffeef2;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=sour7&label=Profile%20views&color=0e75b6&style=flat" alt="sour7" /> </p>
+        #container {
+            z-index: 10;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=sour7" alt="sourabh kumar" /></a> </p>
+        h1 {
+            color: #d63384;
+            font-size: 2.5rem;
+        }
 
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
 
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
 
-- 🔭 I’m currently working as a **Full Stack Developer**
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
 
-- 🌱 I’m currently learning **Full Stack Web Developement**
+        #noBtn {
+            background-color: #6c757d;
+            color: white;
+            position: relative;
+        }
 
-- 👯 I’m looking to collaborate on **new project**
+        /* Balloon Styling */
+        .balloon {
+            position: absolute;
+            font-size: 2rem;
+            user-select: none;
+            pointer-events: none;
+            z-index: 1;
+        }
 
-- 👨‍💻 All of my projects are available at [https://sour7.tech](https://sour7.tech/)
+        /* Success Message Styling */
+        #message {
+            display: none;
+        }
+    </style>
+</head>
+<body>
 
-- 💬 Ask me about **javaScaript , React, Nextjs, Nodejs**
+    <div id="container">
+        <div id="askSection">
+            <h1>Will you be my Valentine? ❤️</h1>
+            <div class="buttons">
+                <button id="yesBtn" onclick="showSuccess()">Yes</button>
+                <button id="noBtn" onmouseover="moveButton()">No</button>
+            </div>
+        </div>
 
-- 📫 How to reach me **hellosourabh040@gmail.com**
+        <div id="message">
+            <h1>I knew you would say yes! 🥰</h1>
+            <p style="font-size: 1.2rem; color: #555;">
+                I'll meet you today at <strong>[Insert Hotel Name]</strong> <br> 
+                around <strong>[Insert Time]</strong>.
+            </p>
+            <div style="font-size: 3rem;">💖</div>
+        </div>
+    </div>
 
-- 📄 Know about my experiences https://drive.google.com/file/d/1vljw7b-_iLEzbuD0DbeB5NyHeDfhEehP/view?usp=sharing
+    <script>
+        // Move the "No" button when hovered
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            
+            btn.style.position = 'absolute';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
 
-- ⚡ Fun fact **My favourite animal is a dog because they're so energetic and friendly.**
+        // Show the success message
+        function showSuccess() {
+            document.getElementById('askSection').style.display = 'none';
+            document.getElementById('message').style.display = 'block';
+            // Stop balloons or add more? Let's just let them keep floating!
+        }
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://linkedin.com/in/sour7" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="sour7" height="30" width="40" /></a>
-</p>
+        // Create floating heart balloons
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.innerHTML = '🎈❤️';
+            balloon.style.left = Math.random() * 100 + 'vw';
+            balloon.style.bottom = '-50px';
+            balloon.style.opacity = Math.random() * 0.5 + 0.5;
+            
+            // Random duration for floating up
+            const duration = Math.random() * 5 + 5;
+            balloon.style.transition = `transform ${duration}s linear, opacity ${duration}s`;
+            
+            document.body.appendChild(balloon);
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://nextjs.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://redux.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/> </a> <a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a> </p>
+            // Animate up
+            setTimeout(() => {
+                balloon.style.transform = `translateY(-${window.innerHeight + 100}px) rotate(${Math.random() * 40 - 20}deg)`;
+            }, 100);
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=sour7&show_icons=true&locale=en&layout=compact" alt="sour7" /></p>
+            // Remove from DOM after animation
+            setTimeout(() => {
+                balloon.remove();
+            }, duration * 1000);
+        }
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=sour7&show_icons=true&locale=en" alt="sour7" /></p>
+        // Generate balloons every second
+        setInterval(createBalloon, 800);
+    </script>
+</body>
+</html>
